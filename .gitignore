@@ -71,3 +71,4 @@ notebooks/pivottablejs.html
 # Large dataset to keep local
 data/parameter_names_and_counts
 data/epa_hap_daily_summary.csv
+data/q*

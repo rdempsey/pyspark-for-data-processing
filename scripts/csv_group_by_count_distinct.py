@@ -33,7 +33,6 @@ Expected output:
 
 # Import what we need from PySpark
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, countDistinct
 
 # Create a spark session
 spark = SparkSession.builder.appName("Group By Count Distinct").getOrCreate()
