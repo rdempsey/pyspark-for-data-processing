@@ -46,53 +46,18 @@ coverage.xml
 *.cover
 .hypothesis/
 
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
 # Sphinx documentation
 docs/_build/
 
 # PyBuilder
 target/
 
-# Jupyter Notebook
+# Jupyter Notebook and more
 .ipynb_checkpoints
+notebooks/pivottablejs.html
 
 # pyenv
 .python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# dotenv
-.env
-
-# virtualenv
-.venv
-venv/
-ENV/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
 
 # mkdocs documentation
 /site
@@ -102,3 +67,7 @@ ENV/
 
 # Application specific things
 .condaauto
+
+# Large dataset to keep local
+data/parameter_names_and_counts
+data/epa_hap_daily_summary.csv

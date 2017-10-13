@@ -1,2 +1,4 @@
 pandas==0.20.3
 jupyter==1.0.0
+matplotlib==2.0.2
+pivottablejs==0.8.0

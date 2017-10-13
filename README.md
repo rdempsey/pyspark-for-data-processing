@@ -60,6 +60,11 @@ Checkout the code
 git checkout git@github.com:rdempsey/pyspark-for-data-processing.git
 ```
 
+Download the dataset, unzip and place the csv file in the project's data folder
+```
+cp ~/Downloads/epa_hap_daily_summary.csv ./data/epa_hap_daily_summary.csv
+```
+
 Run the Docker Compose file
 ```
 docker-compose up --build -d
@@ -70,7 +75,9 @@ Open a bash shell in the container
 docker exec -it pysparkfordataprocessing_master_1 /bin/bash
 ```
 
-Run the copy_file script
+Run one of the scripts in the `scripts` folder
 ```
-bin/spark-submit /scripts/copy_file.py
+bin/spark-submit /scripts/<script-to-run>.py
 ```
+
+All output will be save into the `data` folder.

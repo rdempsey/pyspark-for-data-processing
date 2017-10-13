@@ -1,6 +1,5 @@
 """
-When run in Spark, this will copy the test file and create a second one
-containing the same contents as the first.
+Copy the data from the test file into a new one.
 """
 
 # Import what we need from PySpark
