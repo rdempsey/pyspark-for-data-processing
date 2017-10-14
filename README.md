@@ -30,24 +30,24 @@ The daily summary file contains data for every monitor (sampled parameter) in th
 9. Parameter Name: The name or description assigned in AQS to the parameter measured by the monitor. Parameters may be pollutants or non-pollutants.
 10. Sample Duration: The length of time that air passes through the monitoring device before it is analyzed (measured). So, it represents an averaging period in the atmosphere (for example, a 24-hour sample duration draws ambient air over a collection filter for 24 straight hours). For continuous monitors, it can represent an averaging time of many samples (for example, a 1-hour value may be the average of four one-minute samples collected during each quarter of the hour).
 11. Pollutant Standard: A description of the ambient air quality standard rules used to aggregate statistics. (See description at beginning of document.)
-   Date Local: The calendar date for the summary. All daily summaries are for the local standard day (midnight to midnight) at the monitor.
-12. Units of Measure: The unit of measure for the parameter. QAD always returns data in the standard units for the parameter. Submitters are allowed to report data in any unit and EPA converts to a standard unit so that we may use the data in calculations.
-13. Event Type: Indicates whether data measured during exceptional events are included in the summary. A wildfire is an example of an exceptional event; it is something that affects air quality, but the local agency has no control over. No Events means no events occurred. Events Included means events occurred and the data from them is included in the summary. Events Excluded means that events occurred but data form them is excluded from the summary. Concurred Events Excluded means that events occurred but only EPA concurred exclusions are removed from the summary. If an event occurred for the parameter in question, the data will have multiple records for each monitor.
-14. Observation Count: The number of observations (samples) taken during the day.
-15. Observation Percent: The percent representing the number of observations taken with respect to the number scheduled to be taken during the day. This is only calculated for monitors where measurements are required (e.g., only certain parameters).
-16. Arithmetic Mean: The average (arithmetic mean) value for the day.
-17. 1st Max Value: The highest value for the day.
-18. 1st Max Hour: The hour (on a 24-hour clock) when the highest value for the day (the previous field) was taken.
-19. AQI: The Air Quality Index for the day for the pollutant, if applicable.
-20. Method Code: An internal system code indicating the method (processes, equipment, and protocols) used in gathering and measuring the sample. The method name is in the next column.
-21. Method Name: A short description of the processes, equipment, and protocols used in gathering and measuring the sample.
-22. Local Site Name: The name of the site (if any) given by the State, local, or tribal air pollution control agency that operates it.
-23. Address: The approximate street address of the monitoring site.
-24. State Name: The name of the state where the monitoring site is located.
-25. County Name: The name of the county where the monitoring site is located.
-26. City Name: The name of the city where the monitoring site is located. This represents the legal incorporated boundaries of cities and not urban areas.
-27. CBSA Name: The name of the core bases statistical area (metropolitan area) where the monitoring site is located.
-28. Date of Last Change: The date the last time any numeric values in this record were updated in the AQS data system.
+12.Date Local: The calendar date for the summary. All daily summaries are for the local standard day (midnight to midnight) at the monitor.
+13. Units of Measure: The unit of measure for the parameter. QAD always returns data in the standard units for the parameter. Submitters are allowed to report data in any unit and EPA converts to a standard unit so that we may use the data in calculations.
+14. Event Type: Indicates whether data measured during exceptional events are included in the summary. A wildfire is an example of an exceptional event; it is something that affects air quality, but the local agency has no control over. No Events means no events occurred. Events Included means events occurred and the data from them is included in the summary. Events Excluded means that events occurred but data form them is excluded from the summary. Concurred Events Excluded means that events occurred but only EPA concurred exclusions are removed from the summary. If an event occurred for the parameter in question, the data will have multiple records for each monitor.
+15. Observation Count: The number of observations (samples) taken during the day.
+16. Observation Percent: The percent representing the number of observations taken with respect to the number scheduled to be taken during the day. This is only calculated for monitors where measurements are required (e.g., only certain parameters).
+17. Arithmetic Mean: The average (arithmetic mean) value for the day.
+18. 1st Max Value: The highest value for the day.
+19. 1st Max Hour: The hour (on a 24-hour clock) when the highest value for the day (the previous field) was taken.
+20. AQI: The Air Quality Index for the day for the pollutant, if applicable.
+21. Method Code: An internal system code indicating the method (processes, equipment, and protocols) used in gathering and measuring the sample. The method name is in the next column.
+22. Method Name: A short description of the processes, equipment, and protocols used in gathering and measuring the sample.
+23. Local Site Name: The name of the site (if any) given by the State, local, or tribal air pollution control agency that operates it.
+24. Address: The approximate street address of the monitoring site.
+25. State Name: The name of the state where the monitoring site is located.
+26. County Name: The name of the county where the monitoring site is located.
+27. City Name: The name of the city where the monitoring site is located. This represents the legal incorporated boundaries of cities and not urban areas.
+28. CBSA Name: The name of the core bases statistical area (metropolitan area) where the monitoring site is located.
+29. Date of Last Change: The date the last time any numeric values in this record were updated in the AQS data system.
 
 ### Dataset Preview
 

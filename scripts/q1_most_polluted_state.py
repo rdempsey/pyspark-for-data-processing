@@ -3,38 +3,12 @@ Read the CSV file and get a distinct count of records for each value in the
 state_name field, show the results on the console and save them to a single csv
 file.
 
-Expected output:
-
-+--------------+--------------------+-----+
-|    state_name|      parameter_name|count|
-+--------------+--------------------+-----+
-|       Montana|     Nickel PM2.5 LC|21339|
-|         Texas|    Arsenic PM2.5 LC|24611|
-|  Rhode Island|  12-Dichloropropane| 6863|
-|          Ohio|             Benzene| 6178|
-|South Carolina|   Trichloroethylene| 1488|
-|       Georgia|  Chromium (TSP) STP| 3608|
-|    Washington|        13-Butadiene| 2266|
-|     Louisiana|        Formaldehyde| 1875|
-|    New Mexico|Carbon tetrachloride|  143|
-|          Utah|Carbon tetrachloride|  968|
-|          Ohio|cis-13-Dichloropr...|  712|
-|    California|        Acetaldehyde|28919|
-|       Indiana|1122-Tetrachloroe...| 9884|
-|      Kentucky|    Mercury PM10 STP| 1562|
-|      Oklahoma| Manganese (TSP) STP| 3297|
-|  Rhode Island|  Manganese PM2.5 LC| 1565|
-|        Kansas| Ethylene dichloride|  106|
-|    California|        13-Butadiene|30699|
-|  Rhode Island|        Formaldehyde| 4683|
-|South Carolina|   Chromium PM10 STP| 1691|
-+--------------+--------------------+-----+
-only showing top 20 rows
+Output: q1_most_polluted_state.csv file in the data folder
 """
 
 # Import what we need from PySpark
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, countDistinct
+import pandas as pd
 
 # Create a spark session
 spark = SparkSession.builder.appName("Q1 Most Polluted State").getOrCreate()
@@ -43,13 +17,42 @@ df = spark.read.csv("/tmp/data/epa_hap_daily_summary.csv",
                     header=True,
                     mode="DROPMALFORMED")
                     
-# Get the count of records grouped by the state_name and parameter name
-df_new = df.groupby("state_name", "parameter_name").count()
+# Spark inported all datatypes as strings
+# Convert the arithmetic_mean to a float so we can sum it
+df = df.withColumn("arithmetic_mean", df["arithmetic_mean"].cast("float"))
+                    
+# Group by state_name
+# Pivot on parameter_name
+df_new = (df.groupby("state_name")
+            .pivot("parameter_name")
+            .sum("arithmetic_mean"))
+    
+# View the schema of the dataframe
+# df_new.printSchema()
 
-# Show the results
-df_new.show()
+# Write the Spark dataframe to csv files
+# df_new.write.option("header", "true") \
+#       .format('csv') \
+#       .save("/tmp/data/q1_most_polluted_state")
+    
+# Convert the dataframe to a Pandas dataframe
+# The new DF will have 54 rows and 41 columns
+# Since this is small it's okay
+pandas_df = df_new.toPandas()
 
-# Write the dataframe to csv files
-df_new.write.option("header", "true") \
-            .format('csv') \
-            .save("/tmp/data/q1_most_polluted_state")
+# Set the state_name column as the index
+pandas_df.set_index('state_name', inplace=True)
+
+# Get the max value of each column
+max_vals_df = pandas_df.max().to_frame()
+max_vals_df = max_vals_df.rename(columns={0: 'sum_measurements'})
+
+# Get the state for the max value of each column
+max_idx_df = pandas_df.idxmax().to_frame()
+max_idx_df = max_idx_df.rename(columns={0: 'state'})
+
+# Combine the dataframes
+max_df = max_vals_df.join(max_idx_df, how='inner')
+
+# Save the combined dataframe to a csv file
+max_df.to_csv("/tmp/data/q1_most_polluted_state.csv")
