@@ -77,7 +77,7 @@ docker exec -it pysparkfordataprocessing_master_1 /bin/bash
 
 Run one of the scripts in the `scripts` folder
 ```
-bin/spark-submit /scripts/<script-to-run>.py
+bin/spark-submit /scripts/q1_most_polluted_state.py
 ```
 
 All output will be save into the `data` folder.
