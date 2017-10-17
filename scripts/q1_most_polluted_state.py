@@ -19,7 +19,7 @@ df = spark.read.csv("/tmp/data/epa_hap_daily_summary.csv",
                     mode="DROPMALFORMED")
     
 """
-Group the data by parameter_name and state, and sum the arithmetic_mean
+Group the data by parameter_name and state, then sum the arithmetic_mean
 
 Schema:
 

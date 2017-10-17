@@ -53,6 +53,18 @@ The daily summary file contains data for every monitor (sampled parameter) in th
 
 ![Dataset Preview](images/dataset_preview.png)
 
+
+## Spark in Docker
+
+To make running the code easy Spark will be run inside of a Docker image. This project uses the Spark containers from [Getty Images](https://hub.docker.com/r/gettyimages/spark/). The included docker compose file will create two containers for a 2-node cluster:
+
+1. Master node
+2. Worker node
+
+When a Spark job is running you will have access to the Spark Web UI. Once the jobs are finished it's gone baby.
+
+To run the Docker containers ensure you have Docker installed and running.
+
 ## Run the Code
 
 Checkout the code

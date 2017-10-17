@@ -9,7 +9,7 @@ from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 
 # Create a spark session
-spark = SparkSession.builder.appName("Q2 Most Polluted County").getOrCreate()
+spark = SparkSession.builder.appName("Q3 Top Pollutants By Measure").getOrCreate()
 
 
 # Create a dataframe from the source csv file
@@ -18,7 +18,7 @@ df = spark.read.csv("/tmp/data/epa_hap_daily_summary.csv",
                     mode="DROPMALFORMED")
     
 """
-Group the data by parameter_name and state, and sum the arithmetic_mean
+Group the data by parameter_name and units_of_measure, then sum the arithmetic_mean
 
 Schema:
 
