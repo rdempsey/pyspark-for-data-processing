@@ -2,6 +2,8 @@
 
 Code for my presentation: Using PySpark to Process Boat Loads of Data
 
+Download the slides from Slideshare: [https://www.slideshare.net/robertdempsey/using-pyspark-to-process-boat-loads-of-data](https://www.slideshare.net/robertdempsey/using-pyspark-to-process-boat-loads-of-data).
+
 ## Dataset
 
 This code uses the [Hazardous Air Pollutants](https://www.kaggle.com/epa/hazardous-air-pollutants) dataset from Kaggle.
